@@ -4,7 +4,8 @@
       <mat-icon>menu</mat-icon>
     </button>
     <nav class="menu" [ngClass]="{ 'open': isMenuOpen }">
+        <a mat-button routerLink="/home">Home</a>
       <a mat-button routerLink="/products">Products</a>
-      <a mat-button routerLink="/home">Orders</a>
+      <a mat-button routerLink="/orders">Orders</a>
     </nav>
   </mat-toolbar>
