@@ -30,6 +30,8 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/bootstrap/bootstrap-grid.min.css",
+              "src/assets/bootstrap/bootstrap-utilities.min.css",
               "src/styles.scss"
             ],
             "scripts": []
