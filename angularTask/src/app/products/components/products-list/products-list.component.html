@@ -1,0 +1,6 @@
+<div class="row">
+    <div class="col-md-4" *ngFor="let product of products">
+        <app-product-card [image]="product.ProductImg" [name]="product.ProductName" [price]="product.ProductPrice" [availability]="product.AvailablePieces"></app-product-card>
+        
+    </div>
+</div>

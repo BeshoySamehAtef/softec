@@ -1,0 +1,11 @@
+<mat-card class="my-3">
+    <label for=""></label>
+    <mat-card-header>
+        <mat-card-title>{{name}}</mat-card-title>
+        <mat-card-subtitle>{{price}} $</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="image" [alt]="name">
+    <mat-chip class="my-2" *ngIf="availability < 10 && availability !== 0">Low in Stock</mat-chip>
+    <mat-chip  class="my-2" *ngIf="availability === 0">Out of Stock</mat-chip>
+
+</mat-card>
