@@ -18,6 +18,7 @@ export class ProductsListComponent implements OnInit{
     this.fetchData()
   }
 
+  // fetch products data
   fetchData() {
     this.productService.getProducts().subscribe(data => {
       console.log(data);
