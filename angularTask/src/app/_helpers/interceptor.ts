@@ -16,7 +16,7 @@ export class JsonInterceptor implements HttpInterceptor {
       map((event: HttpEvent<any>) => {
         // Intercept the response
         if (event instanceof HttpResponse) {
-          const responseClone = event.clone({ body: this.convertResponse(event.body) });
+          const responseClone = event.clone({ body: event.body });
           return responseClone;
         }
         return event;
@@ -24,10 +24,5 @@ export class JsonInterceptor implements HttpInterceptor {
     );
   }
 
-  // Convert the response to JSON if needed
-  private convertResponse(body: any): any {
-    // Perform any necessary transformations on the response body
-    // For example, you can parse JSON strings to JavaScript objects
-    return body;
-  }
+
 }
