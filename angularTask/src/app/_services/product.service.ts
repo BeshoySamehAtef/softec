@@ -11,7 +11,6 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-
   // call get products list
   getProducts(): Observable<any[]> {
     return this.http
@@ -28,7 +27,6 @@ export class ProductService {
     }))
   }
 
-
   editProductQuantity(productId: number, quantity: number): Observable<any> {
     return this.getProducts().pipe(map((data: any[]) => {
       const updatedData = data.map(product => {
@@ -41,7 +39,6 @@ export class ProductService {
       return updatedData;
     }));
   }
-
 
   // Error handling
   handleError(error: any) {

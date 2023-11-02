@@ -1,1 +1,11 @@
-<p>order-details works!</p>
+<h1>Order Number: {{data.order.OrderId}}</h1>
+<h2>Payment Method: {{data.order.PaymentType}}</h2>
+
+<div *ngFor="let product of data.order.ProductsDetails">
+    <p>Product name: {{product.ProductName}}</p>
+</div>
+
+<h3>Customer Name: {{customer.Name}}</h3>
+<p>phone: {{customer.Phone}}</p>
+<p>email: {{customer.Email}}</p>
+
