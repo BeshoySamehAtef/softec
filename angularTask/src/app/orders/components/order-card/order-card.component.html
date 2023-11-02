@@ -1,0 +1,17 @@
+<mat-card class="my-3">
+    <label for=""></label>
+    <!-- <button *ngIf="order.AvailablePieces < 10 " mat-button (click)="editQuantity(product)">edit</button> -->
+    <mat-card-header>
+        <mat-card-title>{{order.OrderId}}</mat-card-title>
+        <mat-card-subtitle>{{order.OrderDate | date}}</mat-card-subtitle>
+    </mat-card-header>
+ 
+    <mat-card-content>
+        <p>{{order.totalPrice}}$</p>
+        <p>{{order.PaymentType}}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-button (click)="showDetails(order)">View Details</button>
+    </mat-card-actions>
+</mat-card>
