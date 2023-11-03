@@ -10,8 +10,6 @@ import { Product } from '../_models/product.model';
 export class ProductService {
 
   constructor(private http: HttpClient) { }
-
-
   // call get products list
   getProducts(): Observable<any[]> {
     return this.http
@@ -19,6 +17,7 @@ export class ProductService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  // get product by id
   getProductById(id: number) {
     return this.getProducts().pipe(map((data: any[]) => {
       let returnedProduct = data.find(product => {
@@ -28,7 +27,7 @@ export class ProductService {
     }))
   }
 
-
+  // edit product quantity
   editProductQuantity(productId: number, quantity: number): Observable<any> {
     return this.getProducts().pipe(map((data: any[]) => {
       const updatedData = data.map(product => {
@@ -37,11 +36,9 @@ export class ProductService {
         }
         return product;
       });
-
       return updatedData;
     }));
   }
-
 
   // Error handling
   handleError(error: any) {

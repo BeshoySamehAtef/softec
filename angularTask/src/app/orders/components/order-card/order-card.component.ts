@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-// import { EditQuantityPopupComponent } from '../edit-quantity-popup/edit-quantity-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Order } from 'src/app/_models/order.model';
 import { OrderDetailsComponent } from '../order-details/order-details.component';
@@ -25,9 +24,6 @@ export class OrderCardComponent {
         order: order,
         title: 'Order Details',
       },
-    });
-    dialogRef.afterClosed().subscribe((data) => {
-      console.log(data, 'from subscribe')
     });
   }
 }

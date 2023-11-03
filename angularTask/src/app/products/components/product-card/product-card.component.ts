@@ -25,7 +25,6 @@ export class ProductCardComponent {
       },
     });
     dialogRef.afterClosed().subscribe((data) => {
-      console.log(data, 'from subscribe')
     });
   }
 }
