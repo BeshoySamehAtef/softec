@@ -20,14 +20,11 @@ export class OrderDetailsComponent implements OnInit {
   customer: Customer = new Customer();
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private dialog: MatDialog, private customerService: CustomerService) {
-
-    console.log(data)
   }
 
   ngOnInit(): void {
     this.customerService.getCustomerById(this.data.order.UserId).subscribe({
       next:(data: Customer)=>{
-        console.log(data)
         this.customer = data
       }
     })

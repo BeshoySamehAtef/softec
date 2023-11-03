@@ -7,18 +7,20 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  isMenuOpen = false;
-
+  
   constructor( private router: Router,
-    private route: ActivatedRoute,){
+    private route: ActivatedRoute,){}
 
+    isMobile = window.innerWidth < 600;
+    isMobileMenuOpen = false;
+    links = ['home','products', 'orders'];
+  
+    toggleMenu(): void {
+      this.isMobileMenuOpen = !this.isMobileMenuOpen;
     }
-
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-
-  navigate(){
-    this.router.navigate(['/products'])
+  
+  navigate(link:string){
+    this.isMobileMenuOpen = false;
+    this.router.navigate([`/${link}`])
   }
 }

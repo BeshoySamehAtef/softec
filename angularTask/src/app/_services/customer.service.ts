@@ -10,13 +10,14 @@ export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
-  // call get customers list
+  // get customers list
   getCustomers(): Observable<any[]> {
     return this.http
       .get<any[]>(`assets/data/users`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  // get customer by id 
   getCustomerById(id: string) {
     return this.getCustomers().pipe(map((data: any[]) => {
       let returnedCustomer = data.find(customer => {
@@ -30,7 +31,6 @@ export class CustomerService {
   handleError(error: any) {
     const errorMessage = 'We are sorry, Something went wrong'
     console.log(errorMessage)
-
     return throwError(() => {
       return errorMessage;
     });
