@@ -1,4 +1,4 @@
-<mat-card class="my-3">
+<!-- <mat-card class="my-3">
     <label for=""></label>
     <button *ngIf="product.AvailablePieces < 10 " mat-button (click)="editQuantity(product)">edit</button>
     <mat-card-header>
@@ -8,4 +8,20 @@
     <img mat-card-image [src]="product.ProductImg" [alt]="product.ProductName">
     <mat-chip class="my-2" *ngIf="product.AvailablePieces < 10 && product.AvailablePieces !== 0">Low in Stock</mat-chip>
     <mat-chip class="my-2" *ngIf="product.AvailablePieces === 0">Out of Stock</mat-chip>
-</mat-card>
+</mat-card> -->
+
+<div class="product-card m-2">
+    <img [src]="product.ProductImg" alt="{{ product.ProductName }}" class="product-image" />
+    <div class="product-details">
+        <button *ngIf="product.AvailablePieces < 10" class="edit-button" (click)="editQuantity(product)">
+            <mat-icon>edit</mat-icon>
+        </button>
+
+        <div class="available-chip my-2 low-in-stock"
+            *ngIf="product.AvailablePieces < 10 && product.AvailablePieces !== 0">Low in
+            Stock</div>
+        <div class="available-chip my-2 out-of-stock" *ngIf="product.AvailablePieces === 0">Out of Stock</div>
+        <h3>{{ product.ProductName }}</h3>
+        <p class="product-price">{{ product.ProductPrice | currency }}</p>
+    </div>
+</div>

@@ -1,52 +1,72 @@
-.toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-    background-color: #333;
-    color: #fff;
-  
-    .logo {
-      font-size: 24px;
-    }
-  
-    .menu-icon {
-      display: none;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 24px;
-      cursor: pointer;
-      padding: 8px;
-    }
-  
-    .menu {
-      display: flex;
-      align-items: center;
-  
-      a {
-        margin-left: 16px;
-        color: #fff;
-        text-decoration: none;
-      }
-    }
-  
-    .open {
-      display: flex;
-      flex-direction: column;
-  
-      a {
-        margin-bottom: 8px;
-      }
-    }
-  
-    @media (max-width: 600px) {
-      .menu {
-        display: none;
-      }
-  
-      .menu-icon {
-        display: block;
-      }
+/* Styles for the entire toolbar */
+.mat-toolbar {
+  background-color: #2196F3;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Style the hamburger menu button */
+.menu-button {
+  display: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+
+  @media screen and (max-width: 600px) {
+    display: block;
+  }
+}
+
+/* Style the navigation menu list */
+.menu-list {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 16px;
+    display: inline;
+
+    &:hover {
+      background-color: #1976D2;
+      border-radius: 4px;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    background-color: #1976D2;
+    width: 100%;
+    padding: 16px;
+    list-style: none;
+    text-align: center;
+
+    &.open {
+      display: flex;
+    }
+
+    a {
+      padding: 8px 0;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
