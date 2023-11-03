@@ -9,10 +9,9 @@ import { ProductService } from 'src/app/_services/product.service';
 })
 export class OrdersComponent implements OnInit {
 
-  orders:any[]=[];
+  orders: any[] = [];
 
-  constructor(private orderService: OrderService,private productService:ProductService) {
-    
+  constructor(private orderService: OrderService, private productService: ProductService) {
   }
 
   ngOnInit(): void {
@@ -25,25 +24,23 @@ export class OrdersComponent implements OnInit {
       this.orders = data
       this.orders.forEach(order => {
         let products: any[] = [];
-        let totalPrice=0;
-        order.Products.forEach((product: { ProductId: number; Quantity:number}) => {
+        let totalPrice = 0;
+        order.Products.forEach((product: { ProductId: number; Quantity: number }) => {
           this.productService.getProductById(product.ProductId).subscribe({
-            next:(data)=>{
-              totalPrice = totalPrice + this.totalPriceFn(data.ProductPrice , product.Quantity)
+            next: (data) => {
+              totalPrice = totalPrice + this.totalPriceFn(data.ProductPrice, product.Quantity)
               products.push(data)
-              order.totalPrice=totalPrice
+              order.totalPrice = totalPrice
             }
           })
-
         });
-        order.ProductsDetails = products; 
-        console.log(this.orders,' new orders')
+        order.ProductsDetails = products;
       });
-      // Handle the retrieved JSON data here
     });
   }
 
- totalPriceFn(quantity: number, price: number) {
+  // function to return total price for each order
+  totalPriceFn(quantity: number, price: number) {
     return quantity * price
   }
 

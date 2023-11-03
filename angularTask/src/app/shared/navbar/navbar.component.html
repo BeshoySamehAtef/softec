@@ -1,11 +1,9 @@
-<mat-toolbar class="toolbar">
-    <div class="logo">Logo</div>
-    <button class="menu-icon" (click)="toggleMenu()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <nav class="menu" [ngClass]="{ 'open': isMenuOpen }">
-        <a mat-button routerLink="/home">Home</a>
-      <a mat-button routerLink="/products">Products</a>
-      <a mat-button routerLink="/orders">Orders</a>
-    </nav>
-  </mat-toolbar>
+<mat-toolbar color="primary">
+  <button mat-icon-button class="menu-button" (click)="toggleMenu()">
+    <mat-icon>{{ isMobileMenuOpen ? 'close' : 'menu' }}</mat-icon>
+  </button>
+  <span class="logo">Logo</span>
+  <div class="menu-list" [class.open]="isMobileMenuOpen">
+    <a mat-button *ngFor="let link of links" (click)="navigate(link)">{{ link | titlecase}}</a>
+  </div>
+</mat-toolbar>

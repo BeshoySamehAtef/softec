@@ -1,1 +1,23 @@
-<p>order-details works!</p>
+<div class="order-details-popup">
+    <button mat-icon-button class="close-button" (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+    <h2>Order Details</h2>
+    <div class="order-customer">
+        <p>Customer Name: {{customer.Name }}</p>
+        <p>Phone: {{customer.Phone}}</p>
+        <p>Email: {{customer.Email}}</p>
+    </div>
+    <div class="order-products">
+        <h3>Products:</h3>
+        <ul>
+            <li *ngFor="let product of data.order.ProductsDetails;let i= index">
+                {{ data.order.Products[i].Quantity }} x {{ data.order.ProductsDetails[i].ProductName }}
+            </li>
+        </ul>
+    </div>
+    <div class="order-summary">
+        <p>Total Price: {{ data.order.totalPrice | currency }}</p>
+        <p>Payment Method: {{ data.order.PaymentType }}</p>
+    </div>
+</div>

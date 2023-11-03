@@ -1,0 +1,55 @@
+.order-details-popup {
+    padding: 16px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .close-button {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin: 0 0 16px;
+        color: #333;
+    }
+
+    .order-customer {
+        margin-bottom: 16px;
+
+        p {
+            font-size: 18px;
+            margin: 0 0 8px;
+        }
+    }
+
+    .order-products {
+        h3 {
+            font-size: 20px;
+            margin: 0 0 16px;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                font-size: 16px;
+                margin: 0 0 8px;
+            }
+        }
+    }
+
+    .order-summary {
+        p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            margin-bottom: 8px;
+        }
+    }
+}
